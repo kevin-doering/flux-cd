@@ -1,0 +1,10 @@
+---
+apiVersion: image.toolkit.fluxcd.io/v1alpha1
+kind: ImageRepository
+metadata:
+  name: rpk-api
+  namespace: flux-system
+spec:
+  image: docker.io/rampike/rpk-api
+  interval: 1m0s
+

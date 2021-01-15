@@ -1,0 +1,13 @@
+---
+apiVersion: image.toolkit.fluxcd.io/v1alpha1
+kind: ImagePolicy
+metadata:
+  name: rpk-api
+  namespace: flux-system
+spec:
+  imageRepositoryRef:
+    name: rpk-api
+  policy:
+    semver:
+      range: 0.0.x
+
