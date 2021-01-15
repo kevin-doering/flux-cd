@@ -1,0 +1,27 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: GitRepository
+metadata:
+  name: rpk-api
+  namespace: flux-system
+spec:
+  interval: 30s
+  ref:
+    branch: main
+  url: https://github.com/kevin-doering/rpk-api
+
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+kind: Kustomization
+metadata:
+  name: rpk-api
+  namespace: flux-system
+spec:
+  interval: 5m0s
+  path: ./kustomization
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: rpk-api
+  validation: client
+
